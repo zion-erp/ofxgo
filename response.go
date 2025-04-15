@@ -58,7 +58,7 @@ func (or *Response) readSGMLHeaders(r *bufio.Reader) error {
 			`DATA:\s*(?P<DATA>[A-Z]+)\s*` +
 			`VERSION:\s*(?P<VERSION>\d+)\s*` +
 			`SECURITY:\s*(?P<SECURITY>[\w]+)\s*` +
-			`ENCODING:\s*(?P<ENCODING>[A-Z0-9-]+)\s*` +
+			`ENCODING:\s*(?P<ENCODING>[A-Z0-9- ]+)\s*` +
 			`CHARSET:\s*(?P<CHARSET>[\w-]+)\s*` +
 			`COMPRESSION:\s*(?P<COMPRESSION>[A-Z]+)\s*` +
 			`OLDFILEUID:\s*(?P<OLDFILEUID>[\w-]+)\s*` +
