@@ -2,6 +2,7 @@ package ofxgo
 
 import (
 	"errors"
+
 	"github.com/aclindsa/xml"
 )
 
@@ -324,7 +325,7 @@ func (sr *StatementResponse) Name() string {
 
 // Valid returns (true, nil) if this struct was valid OFX when unmarshalled
 func (sr *StatementResponse) Valid(version ofxVersion) (bool, error) {
-	var emptyDate Date
+	// var emptyDate Date
 	if ok, err := sr.TrnUID.Valid(); !ok {
 		return false, err
 	} else if ok, err := sr.Status.Valid(); !ok {
@@ -333,8 +334,8 @@ func (sr *StatementResponse) Valid(version ofxVersion) (bool, error) {
 		return false, err
 	} else if ok, err := sr.BankAcctFrom.Valid(); !ok {
 		return false, err
-	} else if sr.DtAsOf.Equal(emptyDate) {
-		return false, errors.New("StatementResponse.DtAsOf not filled")
+		// } else if sr.DtAsOf.Equal(emptyDate) {
+		// 	return false, errors.New("StatementResponse.DtAsOf not filled")
 	} else if (sr.AvailBalAmt == nil) != (sr.AvailDtAsOf == nil) {
 		return false, errors.New("StatementResponse.Avail* must both either be present or absent")
 	}
